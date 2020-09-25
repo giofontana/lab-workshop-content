@@ -7,7 +7,7 @@ config:
 
 modules:
     workshop-overview:
-        name: Workshop Overview
+        name: Workshop Overview Test
         exit_sign: Setup Environment
     setup-environment:
         name: Workshop Setup
