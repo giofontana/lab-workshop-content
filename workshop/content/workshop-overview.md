@@ -1,5 +1,108 @@
-In this workshop you will learn how to create and structure the content for your own workshop. You will also learn how to deploy your workshop content to be able to test it.
+## Visão Geral do Ambiente
 
+Você irá interagir com um cluster do OpenShift 4 que esta rodando na {{ ENVIRONMENT }}. 
 
-TESTEEEEEEEEEE!!!!!
+O cluster do OpenShift 4 já esta instalado e é composto pela seguinte arquitetura:
 
+* 3 master nodes
+* 3 worker nodes
+
+## Conventions
+
+You will see various code and command blocks throughout these exercises. Some of the command blocks can be executed directly. Others will require modification of the command before execution. If you see a command block with a red border (see below), the command will copy to clipboard for slight required modification.
+
+Você verá vários blocos de código e comando ao longo desses exercícios. Alguns dos blocos de comando podem ser executados diretamente. Outros irão requerer modificação do comando antes da execução. Se você ver um bloco de comando com uma borda vermelha (veja abaixo), o comando será copiado para a área de transferência para uma pequena modificação necessária.
+
+O ícone ao lado dos blocos de comando deve informar se os comandos serão executados ou copiados.
+
+- Este bloco de comando será copiado para sua área de transferência para modificação.
+
+[source,none,role="copypaste copypaste-warning"]
+----
+algum comando para modificar
+----
+[NOTE]
+====
+Para colar o comando copiado, tente o seguinte
+
+- Cmd + V _testado para funcionar no Chrome do macOS_
+- Ctrl + Shift + V _testado para funcionar no Chrome e Firefox no Windows 10_
+- Clique com o botão direito e cole na janela do terminal _testado para funcionar no Edge no Windows 10_
+====
+
+- Isso será executado no console
+
+[source,none,role="execute"]
+----
+echo Hello World\!
+----
+
+A maioria dos blocos de comando oferece suporte para realce automático ou execução com um clique. Se você passar o mouse sobre o bloco de comando acima e clicar com o botão esquerdo, ele deve destacar automaticamente todo o texto para facilitar a cópia. Observe o símbolo ao lado do bloco para ver se ele será copiado ou executado.
+
+Como um exemplo rápido, você pode executar o seguinte para aprender mais sobre o que é uma `Role` no OpenShift:
+
+[source,bash,role="execute"]
+----
+oc explain Role
+----
+
+Inspecione como `ClusterRole` difere:
+
+[source,bash,role="execute"]
+----
+oc explain ClusterRole
+----
+
+Você pode executar o seguinte para aprender mais sobre `RoleBinding`:
+
+[source,bash,role="execute"]
+----
+oc explain RoleBinding
+----
+
+Inspecione como `ClusterRoleBinding` difere:
+
+[source,bash,role="execute"]
+----
+oc explain ClusterRoleBinding
+----
+
+Você sempre pode usar `oc explain [RESOURCE]` para obter mais explicações sobre o que são vários objetos.
+
+Vejamos PolicyRules definidos no `ClusterRole` _cluster-admin_:
+
+[source,bash,role="execute"]
+----
+oc get clusterrole cluster-admin -o yaml
+----
+
+Observe como de acordo com as regras, uma conta com a função _cluster-admin_ tem acesso `*` wildcard a todos os `resources` e` verbs` de um apiGroup e a todos os `verbs` em` nonResourceURLs`.
+
+`verbs` são ações que você executa contra recursos. Coisas como `delete` e` get` são `verbs` no OpenShift.
+
+Para aprender mais sobre certos verbos, execute `oc [verb] --help`
+
+Vamos aprender mais sobre o `verb` _whoami_:
+
+[source,bash,role="execute"]
+----
+oc whoami --help
+----
+
+Vamos agora executar `oc whoami` para ver qual conta você usará hoje:
+
+[source,bash,role="execute"]
+----
+oc whoami
+----
+
+Vamos inspecionar _dashboard-cluster-admin_ `ClusterRoleBinding` que forneceu nosso` ServiceAccount` _cluster-admin_ `ClusterRole`:
+
+[source,bash,role="execute"]
+----
+oc get clusterrolebinding dashboard-cluster-admin -o yaml
+----
+
+Observe que nosso `ServiceAccount` é um subject neste` ClusterRoleBinding` com uma função referenciada sendo o _cluster-admin_ `ClusterRole`
+
+Como cluster-admin durante os exercícios, você poderá fazer qualquer coisa com o cluster, conforme observou anteriormente, portanto, siga as instruções cuidadosamente.

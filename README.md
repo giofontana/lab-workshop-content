@@ -46,3 +46,16 @@ If you didn't follow the recommendation of using a new project, and instead used
 ```
 
 Note that this will not delete anything which may have been deployed when you went through the workshop. If you used an existing project, ensure that you go right through the workshop and execute any steps described in it for deleting any deployments it had you make.
+
+BUILDING WORKSHOP
+======================
+
+```
+
+QUAY_USER=<YOUR_USER>
+TAG=<TAG>
+podman build -t quay.io/${QUAY_USER}/workshop-ocp-ops:${TAG} .
+podman login quay.io
+podman push quay.io/${QUAY_USER}/workshop-ocp-ops:${TAG}
+
+```
