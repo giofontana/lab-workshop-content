@@ -3,25 +3,11 @@ name: Workshop Content
 modules:
     activate:
     - workshop-overview
-    - setup-environment
-    - exercises/01-sample-workshop
-    - exercises/02-workshop-scripts
-    - exercises/03-directory-layout
-    - exercises/04-building-image
-    - exercises/05-workshop-config
-    - exercises/06-page-formatting
-    - exercises/07-data-variables
-    - exercises/08-embedded-links
-    - exercises/09-page-navigation
-    - exercises/10-template-engine
-    - exercises/11-presenter-slides
-    - exercises/12-build-and-setup
-    - exercises/13-share-workshops
-    - exercises/14-remote-hosting
-    - exercises/15-deploy-settings
-    - exercises/16-multiple-users
-    - exercises/17-workshop-only
-    - exercises/18-workshop-deletion
-    - exercises/19-local-deployment
-    - exercises/20-editing-content
-    - workshop-summary
+    - installation
+    - app-mgmt-basics
+    - app-storage-basics
+    - machinesets
+    - infra-nodes
+    - permissions-security
+    - networking
+    - template-quota-limits

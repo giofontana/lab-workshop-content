@@ -1,0 +1,88 @@
+## Permissions and Security
+
+With OpenShift you can manage user rights using Role Based Access Control (RBAC).
+
+In this exercise you will see how to grant and revoke access to users and groups in OpenShift.
+
+[NOTE]
+====
+<x> and <y> will be given by the workshop supervisor
+====
+
+First, login with user<y>.
+
+[source,bash,role="copypaste copypaste-warning"]
+----
+oc login -u user<y> -p openshift
+----
+
+You will receive a output similar to this because user<y> does not have access to any project:
+
+[source,bash]
+----
+[user1:~] $ oc login -u user51 -p openshift
+Login successful.
+
+You don't have any projects. You can try to create a new project, by running
+
+    oc new-project <projectname>
+----
+
+With the command below you will grant the user "user<x>" access to the project rbac-test with permissions that is included in the view role.
+
+[source,bash,role="copypaste copypaste-warning"]
+----
+oc login -u user<x> -p openshift
+oc adm policy add-role-to-user view user<y> -n rbac-exercise
+----
+
+You will get an output similar to this:
+
+[source,bash]
+----
+[user1:~] $ oc adm policy add-role-to-user view user51 -n rbac-exercise
+clusterrole.rbac.authorization.k8s.io/view added: "user51"
+----
+
+Now login with user<y> again and check that he has access to project rbac-exercise:
+
+[source,bash]
+----
+[user1:~] $ oc login -u user51 -p openshift
+Login successful.
+
+You have one project on this server: "rbac-exercise"
+
+Using project "rbac-exercise".
+[user1:~] $
+----
+
+You can perform this same action using web console by accessing the `Administration` -> `Role Bindings` menu and clicking in the `Create Binding` button.
+
+image::images/openshift_rolebinding.png[]
+
+Now, explore the commands below that you can use to check users permissions:
+
+[source,bash,role="execute"]
+----
+oc adm policy who-can get clusterrolebinding
+oc adm policy who-can get pods -n rbac-exercise
+----
+
+Now remove the given role:
+
+[source,bash,role="copypaste copypaste-warning"]
+----
+oc login -u user<x> -p openshift
+oc adm policy remove-role-from-user view user<y> -n rbac-exercise
+----
+
+Now run the commands below that user<y> view role has been removed from rbac-exercise project:
+
+[source,bash,role="execute"]
+----
+oc adm policy who-can get pods -n rbac-exercise
+----
+
+## Secret
+

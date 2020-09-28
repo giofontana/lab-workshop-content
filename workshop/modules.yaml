@@ -4,54 +4,36 @@ config:
       value: undefined
     - name: KUBECTL_VERSION
       value: undefined
+    - name: ENVIRONMENT
+      value: "Amazon Web Services"
+    - name: MASTER_URL
+      value: "openshift-ops-workshop-ocp-ops-workshop.apps-crc.testing"      
 
 modules:
     workshop-overview:
-        name: Workshop Overview Test
-        exit_sign: Setup Environment
-    setup-environment:
-        name: Workshop Setup
-        exit_sign: Start Workshop
-    exercises/01-sample-workshop:
-        name: Sample Workshop
-    exercises/02-workshop-scripts:
-        name: Workshop Scripts
-    exercises/03-directory-layout:
-        name: Directory Layout
-    exercises/04-building-image:
-        name: Building Image
-    exercises/05-workshop-config:
-        name: Workshop Config
-    exercises/06-page-formatting:
-        name: Page Formatting
-    exercises/07-data-variables:
-        name: Data Variables
-    exercises/08-embedded-links:
-        name: Embedding Links
-    exercises/09-page-navigation:
-        name: Page Navigation
-    exercises/10-template-engine:
-        name: Template Engine
-    exercises/11-presenter-slides:
-        name: Presenter Slides
-    exercises/12-build-and-setup:
-        name: Build and Setup
-    exercises/13-share-workshops:
-        name: Share Workshops
-    exercises/14-remote-hosting:
-        name: Remote Hosting
-    exercises/15-deploy-settings:
-        name: Deploy Settings
-    exercises/16-multiple-users:
-        name: Multiple Users
-    exercises/17-workshop-only:
-        name: Workshop Only
-    exercises/18-workshop-deletion:
-        name: Workshop Deletion
-    exercises/19-local-deployment:
-        name: Local Deployment
-    exercises/20-editing-content:
-        name: Editing Content
-    workshop-summary:
-        name: Workshop Summary
-        exit_sign: Finish Workshop
+        name: Visão Geral do Workshop
+        exit_sign: Continuar
+    installation:
+        name: Instalação
+        exit_sign: Continuar
+    app-mgmt-basics:
+        name: Aplicações - Básico
+        exit_sign:   
+    app-storage-basics:
+        name: Aplicações - Storage        
+        exit_sign: Continuar
+    machinesets:
+        name: MachineSets, Machines, and Nodes
+        exit_sign: Continuar              
+    infra-nodes:
+        name: Infrastructure Nodes and Operators
+        exit_sign: Continuar            
+    permissions-security:
+        name: Permissions and Security
+        exit_sign: Continuar        
+    networking:
+        name: OpenShift Networking and NetworkPolicy
+        exit_sign: Continuar
+    template-quota-limits:
+        name: Project Template, Quota, and Limits        
+        exit_sign: Finish Workshop            
