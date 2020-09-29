@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+                                <section>
+                                    <section>
+                                        <object data="workshop-dia-1.pdf" type="application/pdf" width="800" height="600">
+                                            <p>Workshop Dia 1: <a href="workshop-dia-1.pdf"></a></p>
+                                        </object>                                        
+                                    </section>
+                                </section>
+                                <section>
+                                    <section>
+                                        <object data="workshop-dia-2.pdf" type="application/pdf" width="800" height="600">
+                                            <p>Workshop Dia 2: <a href="workshop-dia-2.pdf"></a></p>
+                                        </object>                                        
+                                    </section>
+                                </section>                                
+                                <section>
+                                    <section>
+                                        <object data="workshop-dia-3.pdf" type="application/pdf" width="800" height="600">
+                                            <p>Workshop Dia 3: <a href="workshop-dia-3.pdf"></a></p>
+                                        </object>                                        
+                                    </section>
+                                </section>                   
+                                <section>
+                                    <section>
+                                        <object data="workshop-dia-4.pdf" type="application/pdf" width="800" height="600">
+                                            <p>Workshop Dia 4: <a href="workshop-dia-4.pdf"></a></p>
+                                        </object>                                        
+                                    </section>
+                                </section>                                                              
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
